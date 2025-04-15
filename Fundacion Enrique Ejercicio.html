@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundación Enrique Ramos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #cce0ff);
+      color: #333;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header img {
+      max-width: 100%;
+      border-radius: 2xl;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 2rem;
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #004080;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+    input, select, textarea {
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #004080;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0059b3;
+    }
+    .success {
+      color: green;
+      margin-top: 1rem;
+    }
+    footer {
+      background: #e6f0ff;
+      text-align: center;
+      padding: 1rem;
+    }
+    .floating-donation {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: red;
+      color: white;
+      padding: 1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fundación Enrique Ramos</h1>
+    <p>Luchamos por un futuro mejor para niños y jóvenes con discapacidad</p>
+    <img src="https://www.fundaciononce.es/sites/default/files/styles/portada_slide_1920x650_/public/2022-06/Slide%20Inicio%20%281%29.jpg" alt="Fundación para niños y jóvenes con discapacidad">
+  </header>
+  <main>
+    <section>
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos una fundación con enfoque humano y profesional dedicada a brindar apoyo a niños y jóvenes con discapacidad, facilitando acceso a diagnósticos, tratamientos y contención emocional para ellos y sus familias.</p>
+    </section>
+    <section>
+      <h2>Misión</h2>
+      <p>Proporcionar estudios clínicos gratuitos o de bajo costo a niños y Jovenes con discapacidad, ayudando a sus familias a obtener diagnósticos y tratamientos adecuados.</p>
+    </section>
+    <section>
+      <h2>Visión</h2>
+      <p>Lograr un futuro en el que todos los niños y jóvenes tengan acceso a diagnósticos adecuados, tratamientos integrales y apoyo emocional, contribuyendo a su inclusión y desarrollo en la sociedad.</p>
+    </section>
+    <section>
+      <h2>Valores</h2>
+      <ul>
+        <li>Ética profesional</li>
+        <li>Empatía</li>
+        <li>Diversidad</li>
+        <li>Honestidad</li>
+        <li>Responsabilidad</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Registro de ingreso</h2>
+      <form id="registroForm">
+        <input name="nombre" placeholder="Nombre completo" required>
+        <input name="edad" type="number" placeholder="Edad" required>
+        <input name="condicion" placeholder="Condición médica" required>
+        <select name="sexo">
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <input name="telefono" placeholder="Teléfono" required>
+        <input name="email" type="email" placeholder="Correo electrónico" required>
+        <input name="tutor" placeholder="Nombre del padre o tutor" required>
+        <input name="direccion" placeholder="Dirección" required>
+        <input name="ciudad" placeholder="Ciudad" required>
+        <input name="estado" placeholder="Estado" required>
+        <input name="fecha" type="date" required>
+        <textarea name="comentarios" placeholder="Comentarios"></textarea>
+        <button type="submit">Registrar</button>
+        <div id="mensajeRegistro" class="success" style="display:none"></div>
+      </form>
+    </section>
+    <section>
+      <h2>Registro de voluntarios</h2>
+      <form id="voluntarioForm">
+        <input name="nombre" placeholder="Nombre completo" required>
+        <input name="edad" type="number" placeholder="Edad" required>
+        <select name="sexo">
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <input name="telefono" placeholder="Teléfono" required>
+        <textarea name="comentarios" placeholder="Comentarios"></textarea>
+        <button type="submit">Unirme</button>
+        <div id="mensajeVoluntario" class="success" style="display:none"></div>
+      </form>
+    </section>
+    <section>
+      <h2>Patrocinadores</h2>
+      <p><strong>Laboratorio Ramos</strong>: Nuestro principal patrocinador.</p>
+    </section>
+  </main>
+  <footer>
+    <p>Contáctanos: 📞 <a href="https://wa.me/526442043428">6442043428</a> | 📧 <a href="mailto:kikeramos9651997@gmail.com">kikeramos9651997@gmail.com</a></p>
+  </footer>
+  <div class="floating-donation" onclick="alert('Gracias por tu interés en donar ❤️')">💖</div>
+
+  <script>
+    const registroForm = document.getElementById('registroForm');
+    const voluntarioForm = document.getElementById('voluntarioForm');
+    const mensajeRegistro = document.getElementById('mensajeRegistro');
+    const mensajeVoluntario = document.getElementById('mensajeVoluntario');
+
+    async function enviarDatos(formData, tipo) {
+      const data = Object.fromEntries(formData.entries());
+      try {
+        await fetch('https://sheetdb.io/api/v1/your_api_key', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({data})
+        });
+      } catch (error) {
+        console.error('Error al enviar datos:', error);
+      }
+    }
+
+    registroForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const formData = new FormData(registroForm);
+      await enviarDatos(formData);
+      mensajeRegistro.style.display = 'block';
+      mensajeRegistro.innerHTML = `✅ Gracias, por tu registro.<br>⏳ Redirigiendo al inicio...<br>Te contactaremos pronto.`;
+      setTimeout(() => {
+        mensajeRegistro.style.display = 'none';
+        registroForm.reset();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 5000);
+    });
+
+    voluntarioForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const formData = new FormData(voluntarioForm);
+      await enviarDatos(formData);
+      mensajeVoluntario.style.display = 'block';
+      mensajeVoluntario.innerHTML = `✅ Gracias por tu interés en ser voluntario.`;
+      setTimeout(() => {
+        mensajeVoluntario.style.display = 'none';
+        voluntarioForm.reset();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
